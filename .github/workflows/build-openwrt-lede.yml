@@ -12,7 +12,7 @@ name: Build OpenWrt LEDE
 
 on:
   repository_dispatch:
-    types: [lede-update]
+    types: [LEDE Source Code Updated]
   workflow_dispatch:
     inputs:
       ssh:
