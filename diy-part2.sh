@@ -13,6 +13,9 @@
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.0.1/g' package/base-files/files/bin/config_generate
 
+# Modift default wan port to eth3
+sed -i "s/eth1/eth3/g" ./package/base-files/files/etc/board.d/99-default_network
+
 # clone openclash
 mkdir package/luci-app-openclash
 cd package/luci-app-openclash
