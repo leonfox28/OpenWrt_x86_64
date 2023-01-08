@@ -8,11 +8,11 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build OpenWrt Original
+name: Build OpenWrt
 
 on:
   repository_dispatch:
-    types: [openwrt-update]
+    types: [OpenWrt Source Code Updated]
   workflow_dispatch:
     inputs:
       ssh:
