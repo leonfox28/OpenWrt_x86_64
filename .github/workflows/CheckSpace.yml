@@ -33,6 +33,10 @@ jobs:
         df -hT
         sudo rm -rf /etc/apt/sources.list.d/*
         df -hT
+        sudo rm -rf /etc/mysql
+        df -hT
+        sudo rm -rf /etc/php
+        df -hT
         sudo rm -rf /usr/share/dotnet
         df -hT
         sudo rm -rf /usr/local/lib/android
