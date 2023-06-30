@@ -29,7 +29,7 @@ jobs:
     - name: Check Folder Size
       run: |
         cd /
-        du -lh –-max-depth=1 | sort -n
+        du -lh --max-depth=1 | sort -n
     
     - name: Clean disk space
       run: |
