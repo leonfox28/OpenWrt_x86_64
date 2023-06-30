@@ -32,7 +32,7 @@ jobs:
         cd /usr
         sudo du -d 1 | sort -nr
         echo "Checking /usr/local"
-        cd /usr/loacl
+        cd /usr/local
         sudo du -d 2 | sort -nr
         echo "Checking /usr/share"
         cd /usr/share
