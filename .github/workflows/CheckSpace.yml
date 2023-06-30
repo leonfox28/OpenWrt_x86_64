@@ -8,11 +8,9 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build LEDE
+name: Check Disk Space
 
 on:
-  repository_dispatch:
-    types: [LEDE Source Code Updated]
   workflow_dispatch:
     inputs:
       ssh:
@@ -22,7 +20,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout
