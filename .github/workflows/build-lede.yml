@@ -44,13 +44,14 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
-        df -hT $PWD
+        df -hT
+        docker rmi `docker images -q`
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
-        df -hT $PWD
-        sudo -E apt-get -q update
-        sudo -E apt-get -q install $(curl -fsSL git.io/depends-ubuntu-2004)
-        sudo -E apt-get -q autoremove --purge
-        sudo -E apt-get -q clean
+        df -hT
+        sudo -E apt-get update
+        sudo -E apt-get install $(curl -fsSL git.io/depends-ubuntu-2004)
+        sudo -E apt-get autoremove --purge
+        sudo -E apt-get clean
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
@@ -58,7 +59,7 @@ jobs:
     - name: Clone source code
       working-directory: /workdir
       run: |
-        df -hT $PWD
+        df -hT
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
@@ -102,6 +103,7 @@ jobs:
     - name: Compile the firmware
       id: compile
       run: |
+        df -hT
         cd openwrt
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j1 || make -j1 V=s
