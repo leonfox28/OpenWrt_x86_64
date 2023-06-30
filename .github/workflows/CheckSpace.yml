@@ -26,6 +26,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@main
     
+    - name: Check Folder Size
+      run: |
+        cd /
+        du -h –max-depth=1 *
+    
     - name: Clean disk space
       run: |
         df -hT
