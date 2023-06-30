@@ -28,15 +28,18 @@ jobs:
     
     - name: Check Folder Size
       run: |
-        echo "Checking /etc"
-        cd /etc
-        sudo du -h -d 2 | sort -nr
         echo "Checking /usr"
         cd /usr
-        sudo du -h -d 2 | sort -nr
-        echo "Checking /opt"
-        cd /opt
-        sudo du -h -d 2 | sort -nr
+        sudo du -d 1 | sort -nr
+        echo "Checking /usr/local"
+        cd /usr/loacl
+        sudo du -d 2 | sort -nr
+        echo "Checking /usr/share"
+        cd /usr/share
+        sudo du -d 1 | sort -nr
+        echo "Checking /usr/lib"
+        cd /usr/lib
+        sudo du -d 1 | sort -nr
     
     - name: Clean disk space
       run: |
